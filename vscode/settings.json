@@ -1,0 +1,142 @@
+{
+  // ---------------------------------------------------
+  // Editor Settings
+  // ---------------------------------------------------
+  "breadcrumbs.enabled": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "window.title": "${activeEditorMedium}${separator}${rootName}",
+  "search.exclude": {
+    "**/.git": true,
+    "**/dist": true,
+    "**/node_modules": true
+  },
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.rulers": [80],
+  "editor.fontFamily": "'Hack', 'Cascadia Code','FiraCode-Retina', Consolas, 'Courier New', monospace",
+  "editor.fontLigatures": false,
+  "editor.fontSize": 14,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.lineNumbers": "on",
+  "editor.minimap.size": "fit",
+  // "editor.mouseWheelZoom": true,
+  "editor.quickSuggestionsDelay": 0,
+  "editor.renderWhitespace": "boundary", // "boundary" does not render single space between words
+  "editor.snippetSuggestions": "top",
+  "[javascript]": {
+    "editor.suggestSelection": "recentlyUsed",
+    "editor.suggest.showKeywords": false
+  },
+  "files.autoSave": "onFocusChange",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "window.zoomLevel": -1,
+
+  // ---------------------------------------------------
+  // workbench config
+  // ---------------------------------------------------
+  "workbench.colorTheme": "Night Owl",
+  "workbench.editor.limit.enabled": true,
+  "workbench.editor.limit.value": 10,
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.sideBar.location": "right",
+
+  // ---------------------------------------------------
+  // terminal config
+  // ---------------------------------------------------
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+
+  // ---------------------------------------------------
+  // Emmet Settings (Extension)
+  // ---------------------------------------------------
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.showSuggestionsAsSnippets": true,
+
+  // ---------------------------------------------------
+  // VIM Settings (Extension)
+  // ---------------------------------------------------
+  "vim.statusBarColorControl": false,
+  "vim.easymotion": true,
+  "vim.surround": true,
+  "vim.incsearch": true,
+  "vim.hlsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.insertModeKeyBindingsNonRecursive": [],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      // cursor navigation
+      "before": ["j"],
+      "after": ["g", "j"]
+    },
+    {
+      // cursor navigation
+      "before": ["k"],
+      "after": ["g", "k"]
+    },
+    {
+      // clear last search highlighting
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
+      // window navigation
+      "before": ["<leader>", "h"],
+      "after": ["<C-w>", "h"]
+    },
+    {
+      // window navigation
+      "before": ["<leader>", "j"],
+      "after": ["<C-w>", "j"]
+    },
+    {
+      // window navigation
+      "before": ["<leader>", "k"],
+      "after": ["<C-w>", "k"]
+    },
+    {
+      // window navigation
+      "before": ["<leader>", "l"],
+      "after": ["<C-w>", "l"]
+    },
+    {
+      // vim easymotion
+      "before": ["<leader>", "<leader>"],
+      "after": ["<Leader>", "<Leader>", "<Leader>", "b", "d", "w"]
+    }
+  ],
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["p"],
+      "after": ["\"", "_", "d", "P"]
+    }
+  ],
+  "vim.handleKeys": {},
+  "vim.leader": "<space>",
+
+  // ---------------------------------------------------
+  // Prettier Settings (Extension)
+  // ---------------------------------------------------
+  "prettier.printWidth": 80,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
+  "prettier.useTabs": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // ---------------------------------------------------
+  // Eslint Settings (Extension)
+  // ---------------------------------------------------
+  "eslint.validate": ["javascript"],
+
+  // ---------------------------------------------------
+  // Others
+  // ---------------------------------------------------
+  "scm.alwaysShowRepositories": true,
+  "vsicons.dontShowNewVersionMessage": true,
+  "git.path": "/usr/bin/git",
+  "git.ignoreMissingGitWarning": true
+}
