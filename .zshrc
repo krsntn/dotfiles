@@ -106,11 +106,10 @@ alias yarn-update="yarn upgrade-interactive --latest";
 
 ## npm aliases
 alias ni="npm install";
-alias ni="npm install";
 alias nr="npm run";
-alias ns="npm run start -s --";
-alias nb="npm run build -s --";
-alias nd="npm run develop -s --";
+alias nrs="npm run start -s --";
+alias nrb="npm run build -s --";
+alias nrd="npm run develop -s --";
 alias rmnm="rm -rf node_modules";
 
 ## yarn aliases
