@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/[username]/.oh-my-zsh"
+export ZSH="/Users/karson.tan/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -100,6 +100,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias pg="echo 'Pinging Google' && ping www.google.com";
 alias p="cd ~/Projects";
+alias jx="cd ~/Projects/jx-lottery-webapp/";
 alias ll="ls -la";
 alias npm-update="npx ncu --dep prod --dep dev --upgrade";
 alias yarn-update="yarn upgrade-interactive --latest";
@@ -139,9 +140,18 @@ alias gcuser="git config user.name; git config user.email";
 alias gcun="git config user.name";
 alias gcue="git config user.email";
 
+## office uses purpose
+alias n1="CLIENT=118 yarn start";
+alias n2="CLIENT=1000 yarn start";
+alias n3="CLIENT=977 yarn start";
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_COMMAND='rg --hidden -l ""'

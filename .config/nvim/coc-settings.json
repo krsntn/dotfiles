@@ -1,0 +1,13 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "json",
+    "css",
+    "markdown"
+  ],
+  "coc.preferences.formatOnType": true,
+  "tsserver.enableJavascript": false,
+  "eslint.autoFixOnSave": true,
+  "snippets.ultisnips.usePythonx": false
+}
