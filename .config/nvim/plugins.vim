@@ -2,16 +2,17 @@
 call plug#begin('~/.vim/plugged')
 
 "" Plug 'patstockwell/vim-monokai-tasty'
-"" Plug 'dikiaap/minimalist'
+" Plug 'dikiaap/minimalist'
 Plug 'morhetz/gruvbox'
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-"" Plug 'scrooloose/nerdtree'
-" Plug 'terryma/vim-multiple-cursors'
+" Plug 'scrooloose/nerdtree'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
 Plug 'mhinz/vim-startify'
@@ -26,7 +27,19 @@ call plug#end()
 colorscheme gruvbox
 let g:airline_theme='gruvbox'
 
-" colorscheme minimalist
+" coc
+let g:coc_global_extensions = [
+  \ 'coc-css',
+  \ 'coc-cssmodules',
+  \ 'coc-explorer',
+  \ 'coc-eslint',
+  \ 'coc-html',
+  \ 'coc-json',
+  \ 'coc-snippets',
+  \ 'coc-tsserver'
+  \ ]
+
+"" colorscheme minimalist
 "" let g:airline_theme='minimalist'
 
 "" let g:vim_monokai_tasty_italic = 1
@@ -45,4 +58,3 @@ let g:startify_lists = [
 
 " vim-gitgutter
 let g:gitgutter_highlight_linenrs = 1
-

@@ -4,7 +4,9 @@ syntax on
 lang en_US.UTF-8
 
 set hidden
+set nobackup
 set noswapfile
+set mouse=a
 set encoding=utf-8
 set noerrorbells
 set ignorecase
@@ -27,7 +29,5 @@ set termguicolors
 set background=dark
 set signcolumn=yes
 set updatetime=300
-
-" Fix Splitting ===================================
-set splitbelow splitright
-
+set splitbelow
+set splitright

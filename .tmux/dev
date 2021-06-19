@@ -1,0 +1,4 @@
+neww -n dev -c ~/Desktop/github/
+splitw -h -p 20 -c ~/Desktop/github/
+selectp -t 1
+

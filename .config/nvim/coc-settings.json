@@ -7,9 +7,8 @@
     "markdown"
   ],
   "coc.preferences.formatOnType": true,
+  "explorer.file.showHiddenFiles": true,
   "tsserver.enableJavascript": false,
-  "tsserver.trace.server": "verbose",
-  "tsserver.npm": "~/.nvm/versions/node/v14.2.0/bin/npm",
   "eslint.autoFixOnSave": true,
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "",
