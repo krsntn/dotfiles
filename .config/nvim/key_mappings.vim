@@ -12,9 +12,15 @@ nnoremap <leader>k <C-w>k
 nnoremap <leader>l <C-w>l
 
 " split screen
-nnoremap <silent> <leader>\ :vsp<CR>
-nnoremap <silent> <leader>- :sp<CR>
+nnoremap <silent> <leader>o :vsp<CR>
+nnoremap <silent> <leader>b :sp<CR>
 nnoremap <silent> <leader>q :clo<CR>
+
+" resize pane
+nnoremap <silent> <Leader>= :vertical resize +10<CR>
+nnoremap <silent> <Leader>- :vertical resize -10<CR>
+nnoremap <silent> <Leader>+ :resize +5<CR>
+nnoremap <silent> <Leader>_ :resize -5<CR>
 
 " remove search highlight
 nnoremap <C-_> :noh<CR>
@@ -61,7 +67,7 @@ nnoremap <leader>e :CocCommand explorer<CR>
 nmap <leader>/ <Plug>(easymotion-bd-w)
 
 " Camel Case Motion
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-map <silent> ge <Plug>CamelCaseMotion_ge
+" map <silent> w <Plug>CamelCaseMotion_w
+" map <silent> b <Plug>CamelCaseMotion_b
+" map <silent> e <Plug>CamelCaseMotion_e
+" map <silent> ge <Plug>CamelCaseMotion_ge
