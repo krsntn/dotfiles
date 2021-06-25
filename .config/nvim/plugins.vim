@@ -39,6 +39,10 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver'
   \ ]
 
+highlight CocErrorHighlight ctermfg=Red guifg=#ff0000
+highlight CocWarningHighlight ctermfg=Brown guifg=#ff922b
+
+
 "" colorscheme minimalist
 "" let g:airline_theme='minimalist'
 
@@ -58,3 +62,10 @@ let g:startify_lists = [
 
 " vim-gitgutter
 let g:gitgutter_highlight_linenrs = 1
+
+" fzf
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --hidden --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+

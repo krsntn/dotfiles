@@ -10,6 +10,7 @@
   "explorer.file.showHiddenFiles": true,
   "tsserver.enableJavascript": false,
   "eslint.autoFixOnSave": true,
+  "diagnostic.checkCurrentLine": true,
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",

@@ -59,9 +59,7 @@ POWERLEVEL9K_MODE="awesome-patched"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
+# HIST_STAMPS="mm/dd/yyyy" Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
@@ -69,7 +67,12 @@ POWERLEVEL9K_MODE="awesome-patched"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# plugins=(git)
+#
+# disabled this pluign -  zsh-vi-mode
+
+plugins=(zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
+
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -141,6 +144,8 @@ alias gcun="git config user.name";
 alias gcue="git config user.email";
 
 ## office uses purpose
+alias nvm0="nvm use default"
+alias nvm9="nvm use v10"
 alias n1="CLIENT=118 yarn start";
 alias n2="CLIENT=1000 yarn start";
 alias n3="CLIENT=977 yarn start";
@@ -153,5 +158,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+_comp_options+=(globdots) # show hidden files
+# export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 
-export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
+

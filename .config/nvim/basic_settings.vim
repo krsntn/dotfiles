@@ -1,7 +1,10 @@
 
 " Basic Settings ===================================
+" set termguicolors
+
 syntax on
 lang en_US.UTF-8
+filetype plugin indent on
 
 set hidden
 set nobackup
@@ -12,7 +15,6 @@ set noerrorbells
 set ignorecase
 set smartcase
 set expandtab
-set autoindent
 set smartindent
 set copyindent
 set shiftwidth=2
@@ -25,9 +27,9 @@ set colorcolumn=80
 set wrap
 set clipboard=unnamedplus
 set completeopt=menuone,noinsert
-set termguicolors
 set background=dark
 set signcolumn=yes
 set updatetime=300
 set splitbelow
 set splitright
+
