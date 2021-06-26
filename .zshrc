@@ -150,6 +150,9 @@ alias n1="CLIENT=118 yarn start";
 alias n2="CLIENT=1000 yarn start";
 alias n3="CLIENT=977 yarn start";
 
+## ide
+alias ide="source ~/.tmux/dev.sh"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
