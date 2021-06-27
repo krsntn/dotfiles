@@ -9,7 +9,6 @@ export ZSH="/Users/karson.tan/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
-POWERLEVEL9K_MODE="awesome-patched"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -164,4 +163,4 @@ export NVM_DIR="$HOME/.nvm"
 _comp_options+=(globdots) # show hidden files
 # export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 
-
+neofetch # start up info
