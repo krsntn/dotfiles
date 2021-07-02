@@ -14,3 +14,4 @@ open_tmux_ide()
 
 echo "opening ide..."
 open_tmux_ide
+

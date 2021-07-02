@@ -2,18 +2,30 @@
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "javascriptreact",
+    "typescript",
+    "typescriptreact",
     "json",
     "css",
+    "html",
     "markdown"
   ],
   "coc.preferences.formatOnType": true,
   "explorer.file.showHiddenFiles": true,
-  "tsserver.enableJavascript": false,
+  "explorer.root.customRules": {
+    "vsc": {
+      "patterns": [".git"]
+    }
+  },
   "eslint.autoFixOnSave": true,
+  "javascript.validate.enable": false,
   "diagnostic.checkCurrentLine": true,
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
+  "diagnostic.virtualTextPrefix": "■ ",
+  "yank.highlight.duration": 100,
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",
     "variable": "\ue79b",

@@ -143,11 +143,11 @@ alias gcun="git config user.name";
 alias gcue="git config user.email";
 
 ## office uses purpose
-alias nvm0="nvm use default"
-alias nvm9="nvm use v10"
-alias n1="CLIENT=118 yarn start";
-alias n2="CLIENT=1000 yarn start";
-alias n3="CLIENT=977 yarn start";
+alias n0="nvm use default"
+alias n9="nvm use v10"
+alias n1="nvm use v10 && CLIENT=118 yarn start";
+alias n2="nvm use v10 && CLIENT=1000 yarn start";
+alias n3="nvm use v10 && CLIENT=977 yarn start";
 
 ## ide
 alias ide="source ~/.tmux/dev.sh"
@@ -160,7 +160,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-_comp_options+=(globdots) # show hidden files
-# export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 
-neofetch # start up info
+export FZF_DEFAULT_COMMAND='rg --hidden --files'
+# _comp_options+=(globdots) # show hidden files
+
+# start up info
+#neofetch
+
