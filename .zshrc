@@ -161,8 +161,8 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export FZF_DEFAULT_COMMAND='rg --hidden --files'
-# _comp_options+=(globdots) # show hidden files
+export FZF_DEFAULT_COMMAND="rg --hidden --files --follow -g '!.git/'"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # start up info
 #neofetch
