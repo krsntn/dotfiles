@@ -37,3 +37,5 @@ set splitright
 
 autocmd FocusGained,BufEnter * :silent! !
 
+" auto quit nvim when last buffer is coc explorer
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif

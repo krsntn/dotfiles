@@ -1,4 +1,3 @@
-
 let mapleader = " "
 
 " cursor navigation
@@ -66,5 +65,3 @@ nnoremap <leader>e :CocCommand explorer --quit-on-open<CR>
 
 " easy motion
 nmap <leader>/ <Plug>(easymotion-bd-w)
-
-
