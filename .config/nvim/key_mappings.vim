@@ -54,7 +54,7 @@ nnoremap <silent> <leader>fb :Buffers<CR>
 " vim fugitive
 nnoremap <leader>gs :G<CR>
 nnoremap <leader>gh :diffget //2<CR>
-nnoremap <leader>gk :diffget //3<CR>
+nnoremap <leader>gl :diffget //3<CR>
 
 " coc
 inoremap <expr> <TAB> pumvisible() ? coc#_select_confirm() : "\<TAB>"
