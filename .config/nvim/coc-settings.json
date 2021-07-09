@@ -10,6 +10,8 @@
     "markdown"
   ],
   "coc.preferences.formatOnType": true,
+  "explorer.position": "right",
+  "explorer.icon.enableNerdfont": true,
   "explorer.file.showHiddenFiles": true,
   "explorer.root.customRules": {
     "vsc": {
@@ -17,14 +19,14 @@
     }
   },
   "eslint.autoFixOnSave": true,
-  "javascript.validate.enable": false,
+  "javascript.validate.enable": true,
   "diagnostic.checkCurrentLine": true,
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
-  "diagnostic.virtualTextPrefix": "■ ",
+  "diagnostic.virtualTextPrefix": " ",
   "yank.highlight.duration": 100,
   "suggest.completionItemKindLabels": {
     "keyword": "\uf1de",

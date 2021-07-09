@@ -22,8 +22,13 @@ nnoremap <silent> <Leader><Left> :vertical resize -10<CR>
 nnoremap <silent> <Leader><Up> :resize +5<CR>
 nnoremap <silent> <Leader><Down> :resize -5<CR>
 
+" switch between buffers
+nnoremap <silent> <Tab> :bn<CR>
+nnoremap <silent> <S-Tab> :bp<CR>
+nnoremap <silent> <leader>w :bd<CR>
+
 " remove search highlight
-nnoremap <C-_> :noh<CR>
+nmap <silent> <ESC> :noh<CR>
 
 " paste text without overwriting register 
 vnoremap p "_dP
@@ -41,10 +46,11 @@ vnoremap <silent> # :<C-U>
   \gVzv:call setreg('"', old_reg, old_regtype)<CR>
 
 " fzf
-nnoremap <silent> <C-p> :GFiles<CR>
-nnoremap <silent> <C-e> :Files<CR>
-nnoremap <C-f> :Rg!<Space>
-nnoremap <silent> <C-g> :History: <CR>
+nnoremap <silent> <leader>fp :GFiles<CR>
+nnoremap <silent> <leader>fo :Files<CR>
+nnoremap <leader>ff :Rg!<Space>
+nnoremap <silent> <leader>fh :History: <CR>
+nnoremap <silent> <leader>fb :Buffers<CR>
 
 " vim fugitive
 nnoremap <leader>gs :G<CR>
@@ -62,9 +68,8 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " coc-eplorer
-nnoremap <leader>e :CocCommand explorer --quit-on-open<CR>
+nnoremap <silent> <leader>e :CocCommand explorer --quit-on-open<CR>
 
 " easy motion
 nmap <leader>/ <Plug>(easymotion-bd-w)
-
 
