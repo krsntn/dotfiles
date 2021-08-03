@@ -8,8 +8,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " fuzzy finder
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf'
+" Plug 'junegunn/fzf.vim'
+
+" telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -33,6 +38,9 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 "start up screen
 Plug 'mhinz/vim-startify'
+
+" lazygit
+Plug 'kdheepak/lazygit.nvim'
 
 " tabs
 "Plug 'romgrk/barbar.nvim'
@@ -82,8 +90,26 @@ let g:coc_global_extensions = [
 "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
 
 ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 
-" fzf
-let g:fzf_buffers_jump = 1
+" telescope
+lua << EOF
+require('telescope').setup{
+  defaults = {
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '--hidden',
+      '--glob',
+      '!.git',
+    },
+    winblend = 10,
+  }
+}
+EOF
 "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
 
 ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 
@@ -117,12 +143,14 @@ let g:gitgutter_highlight_linenrs = 1
 
 ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 
 " fzf
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --hidden --column --line-number --fixed-strings --no-heading --color=always --smart-case --glob "!{.git,node_modules}/*" '.shellescape(<q-args>),
-  \   1,
-  \   fzf#vim#with_preview({'options': ['--delimiter=--nth 4..', '--exact']}),
-  \   <bang>0)
+" command! -bang -nargs=* Rg
+"   \ call fzf#vim#grep(
+"   \   'rg --hidden --column --line-number --fixed-strings --no-heading --color=always --smart-case --glob "!{.git,node_modules}/*" '.shellescape(<q-args>),
+"   \   1,
+"   \   fzf#vim#with_preview({'options': ['--delimiter=--nth 4..', '--exact']}),
+"   \   <bang>0)
+
+" let g:fzf_buffers_jump = 1
 "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
 
 ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 
@@ -151,4 +179,5 @@ let g:indent_blankline_char = '│'
 let g:indent_blankline_filetype_exclude = ['help', 'terminal']
 " let g:indent_blankline_show_trailing_blankline_indent = v:false
 "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< 
+
 

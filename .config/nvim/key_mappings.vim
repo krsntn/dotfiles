@@ -4,16 +4,22 @@ let mapleader = " "
 nnoremap j gj
 nnoremap k gk
 
-" pane navigation
+" close buffer
+nnoremap <leader>c :bd<CR>
+
+"pane navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" save & quit buffer
+nnoremap <silent> <leader>q :q<CR>
+nnoremap <silent> <leader>w :w<CR>
+
 " split screen
 nnoremap <silent> <leader>l :vsp<CR>
 nnoremap <silent> <leader>j :sp<CR>
-nnoremap <silent> <leader>q :clo<CR>
 
 " resize pane
 nnoremap <silent> <Leader><Right> :vertical resize +10<CR>
@@ -24,7 +30,6 @@ nnoremap <silent> <Leader><Down> :resize -5<CR>
 " switch between buffers
 nnoremap <silent> <Tab> :bn<CR>
 nnoremap <silent> <S-Tab> :bp<CR>
-nnoremap <silent> <leader>w :bd<CR>
 
 " remove search highlight
 nmap <silent> <ESC> :noh<CR>
@@ -45,11 +50,18 @@ vnoremap <silent> # :<C-U>
   \gVzv:call setreg('"', old_reg, old_regtype)<CR>
 
 " fzf
-nnoremap <silent> <leader>fp :GFiles<CR>
-nnoremap <silent> <leader>fo :Files<CR>
-nnoremap <leader>ff :Rg!<Space>
-nnoremap <silent> <leader>fh :History: <CR>
-nnoremap <silent> <leader>fb :Buffers<CR>
+" nnoremap <silent> <leader>fp :GFiles<CR>
+" nnoremap <silent> <leader>fo :Files<CR>
+" nnoremap <leader>ff :Rg!<Space>
+" nnoremap <silent> <leader>fh :History: <CR>
+" nnoremap <silent> <leader>fb :Buffers<CR>
+
+" telescope
+nnoremap <silent> <leader>fp :Telescope find_files find_command=rg,--hidden,--files,--glob,!.git<CR>
+nnoremap <silent> <leader>ff :Telescope live_grep<CR>
+nnoremap <silent> <leader>fb :Telescope buffers<CR>
+nnoremap <silent> <leader>fh :Telescope help_tags<CR>
+nnoremap <silent> <leader>fg :Telescope git_status<CR>
 
 " vim fugitive
 nnoremap <leader>gs :G<CR>
@@ -71,4 +83,7 @@ nnoremap <silent> <leader>e :CocCommand explorer --quit-on-open<CR>
 
 " easy motion
 nmap <leader>/ <Plug>(easymotion-bd-w)
+
+" lazygit
+nnoremap <silent> <leader>gg :LazyGit<CR>
 
