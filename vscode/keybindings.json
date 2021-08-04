@@ -1,10 +1,16 @@
 // Place your key bindings in this file to override the defaults
 [
+  // general ==========
   {
     "key": "ctrl+.",
     "command": "editor.action.triggerSuggest",
     "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
   },
+  {
+    "key": "ctrl+escape",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  // terminal ==========
   {
     "key": "ctrl+tab",
     "command": "workbench.action.terminal.focusNext",

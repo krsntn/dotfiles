@@ -4,7 +4,7 @@
   // ---------------------------------------------------
   "breadcrumbs.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
-  "window.title": "${activeEditorMedium}${separator}${rootName}",
+  "window.title": "${rootName}${separator}${activeEditorMedium}",
   "search.exclude": {
     "**/.git": true,
     "**/dist": true,
@@ -12,7 +12,7 @@
   },
   "editor.detectIndentation": false,
   "editor.tabSize": 2,
-  "editor.insertSpaces": true,
+  "editor.insertSpaces": false,
   "editor.rulers": [80],
   "editor.fontFamily": "'Hack', 'Cascadia Code','FiraCode-Retina', Consolas, 'Courier New', monospace",
   "editor.fontLigatures": false,
@@ -22,9 +22,8 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "editor.lineNumbers": "on",
+  "editor.lineNumbers": "relative",
   "editor.minimap.size": "fit",
-  // "editor.mouseWheelZoom": true,
   "editor.quickSuggestionsDelay": 0,
   "editor.renderWhitespace": "boundary", // "boundary" does not render single space between words
   "editor.snippetSuggestions": "top",
@@ -34,16 +33,17 @@
   },
   "files.autoSave": "onFocusChange",
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "window.zoomLevel": -1,
 
   // ---------------------------------------------------
   // workbench config
   // ---------------------------------------------------
-  "workbench.colorTheme": "Night Owl",
+  "workbench.colorTheme": "Cobalt2",
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.value": 10,
   "workbench.iconTheme": "vscode-icons",
   "workbench.sideBar.location": "right",
+  "workbench.editor.decorations.badges": true,
+  "workbench.editor.decorations.colors": true,
 
   // ---------------------------------------------------
   // terminal config
@@ -59,13 +59,27 @@
   // ---------------------------------------------------
   // VIM Settings (Extension)
   // ---------------------------------------------------
-  "vim.statusBarColorControl": false,
+  "vim.statusBarColorControl": true,
+  "vim.statusBarColors.normal": ["#665c54", "#e6ddd5"],
+  "vim.statusBarColors.insert": ["#d65d0e", "#111111"],
+  "vim.statusBarColors.visual": ["#79740e", "#e6ddd5"],
+  "vim.statusBarColors.visualline": ["#79740e", "#e6ddd5"],
+  "vim.statusBarColors.visualblock": ["#79740e", "#e6ddd5"],
+  "vim.statusBarColors.replace": ["#d65d0e", "#111111"],
+  "vim.statusBarColors.commandlineinprogress": ["#076678", "#e6ddd5"],
+  "vim.statusBarColors.searchinprogressmode": ["#076678", "#e6ddd5"],
+  "vim.statusBarColors.easymotionmode": ["#076678", "#e6ddd5"],
+  "vim.statusBarColors.easymotioninputmode": ["#076678", "#e6ddd5"],
+  "vim.statusBarColors.surroundinputmode": ["#076678", "#e6ddd5"],
+  "vim.camelCaseMotion.enable": true, // easier way to move through camelCase and snake_case words
   "vim.easymotion": true,
   "vim.surround": true,
-  "vim.incsearch": true,
-  "vim.hlsearch": true,
+  "vim.incsearch": true, // Show the next match while entering a search
+  "vim.hlsearch": true, // Highlights all text matching current search
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
+  "vim.highlightedyank.enable": true, // Enable highlighting when yanking
+  "vim.visualstar": true, // In visual mode, enable # or *
   "vim.insertModeKeyBindingsNonRecursive": [],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
@@ -81,42 +95,352 @@
     {
       // clear last search highlighting
       "before": ["<C-n>"],
-      "commands": [":nohl"]
+      "commands": [":noh"]
+    },
+    {
+      // split editor
+      "before": ["<leader>", "l"],
+      "commands": ["workbench.action.splitEditor"]
+    },
+    {
+      // split editor
+      "before": ["<leader>", "j"],
+      "commands": ["workbench.action.splitEditorDown"]
+    },
+    {
+      // find all
+      "before": ["<leader>", "f", "p"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      // find all
+      "before": ["<leader>", "f", "f"],
+      "commands": ["workbench.action.findInFiles"]
+    },
+    {
+      // focus on explorer
+      "before": ["<leader>", "f", "e"],
+      "commands": ["workbench.view.explorer"]
+    },
+    {
+      // focus source control
+      "before": ["<leader>", "g", "s"],
+      "commands": ["workbench.scm.focus"]
     },
     {
       // window navigation
-      "before": ["<leader>", "h"],
+      "before": ["<C-h>"],
       "after": ["<C-w>", "h"]
     },
     {
       // window navigation
-      "before": ["<leader>", "j"],
+      "before": ["<C-j>"],
       "after": ["<C-w>", "j"]
     },
     {
       // window navigation
-      "before": ["<leader>", "k"],
+      "before": ["<C-k>"],
       "after": ["<C-w>", "k"]
     },
     {
       // window navigation
-      "before": ["<leader>", "l"],
+      "before": ["<C-l>"],
       "after": ["<C-w>", "l"]
     },
     {
       // vim easymotion
-      "before": ["<leader>", "<leader>"],
+      "before": ["<leader>", "/"],
       "after": ["<Leader>", "<Leader>", "<Leader>", "b", "d", "w"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
+    // paste without replacing new words into clipboard
     {
       "before": ["p"],
       "after": ["\"", "_", "d", "P"]
+    },
+    // move line
+    {
+      "before": ["<C-k>"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    },
+    {
+      "before": ["<C-j>"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
+    // auto select back after formatting
+    {
+      "before": [">"],
+      "after": [">", "g", "v"]
+    },
+    {
+      "before": ["<"],
+      "after": ["<", "g", "v"]
     }
   ],
-  "vim.handleKeys": {},
   "vim.leader": "<space>",
+
+  // ---------------------------------------------------
+  // Neovim
+  // ---------------------------------------------------
+  "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+  "vscode-neovim.neovimInitVimPaths.darwin": "$HOME/.config/nvim/vscode/init.vim",
+  "vscode-neovim.mouseSelectionStartVisualMode": true,
+  "vscode-neovim.textDecorationsAtTop": true,
+  "workbench.list.automaticKeyboardNavigation": false,
+
+  // ---------------------------------------------------
+  // which key
+  // ---------------------------------------------------
+  "whichkey.sortOrder": "alphabetically",
+  "whichkey.delay": 0,
+  "whichkey.bindings": [
+    {
+      "key": ";",
+      "name": "commands",
+      "type": "command",
+      "command": "workbench.action.showCommands"
+    },
+    {
+      "key": "/",
+      "name": "comment",
+      "type": "command",
+      "command": "vscode-neovim.send",
+      "args": "<Plug>(easymotion-bd-w)"
+    },
+    {
+      "key": "?",
+      "name": "View All References",
+      "type": "command",
+      "command": "references-view.find",
+      "when": "editorHasReferenceProvider"
+    },
+    {
+      "key": "q",
+      "name": "Close",
+      "type": "command",
+      "command": "workbench.action.closeActiveEditor"
+    },
+    {
+      "key": "e",
+      "name": "Toggle Explorer",
+      "type": "command",
+      "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+      "key": "f",
+      "name": "Find...",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "e",
+          "name": "File Explorer",
+          "type": "command",
+          "command": "workbench.view.explorer"
+        },
+        {
+          "key": "f",
+          "name": "Find All",
+          "type": "command",
+          "command": "workbench.action.findInFiles"
+        },
+        {
+          "key": "s",
+          "name": "Symbol",
+          "type": "command",
+          "command": "editor.action.rename",
+          "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+        },
+        {
+          "key": "p",
+          "name": "Files",
+          "type": "command",
+          "command": "workbench.action.quickOpen"
+        }
+      ]
+    },
+    {
+      "key": "h",
+      "name": "Split Horizontal",
+      "type": "command",
+      "command": "workbench.action.splitEditorDown"
+    },
+    {
+      "key": "M",
+      "name": "Minimap",
+      "type": "command",
+      "command": "editor.action.toggleMinimap"
+    },
+    {
+      "key": "o",
+      "name": "Open...",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "d",
+          "name": "Directory",
+          "type": "command",
+          "command": "workbench.action.files.openFolder"
+        },
+        {
+          "key": "r",
+          "name": "Recent",
+          "type": "command",
+          "command": "workbench.action.openRecent"
+        },
+        {
+          "key": "f",
+          "name": "File",
+          "type": "command",
+          "command": "workbench.action.files.openFile"
+        }
+      ]
+    },
+    {
+      "key": "g",
+      "name": "git...",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "s",
+          "name": "Show source control",
+          "type": "command",
+          "command": "workbench.scm.focus"
+        },
+        {
+          "key": "g",
+          "name": "Graph",
+          "type": "command",
+          "command": "git-graph.view"
+        },
+        {
+          "key": "h",
+          "name": "History",
+          "type": "command",
+          "command": "git.viewFileHistory"
+        },
+        {
+          "key": "l",
+          "name": "Toggle Line Blame",
+          "type": "command",
+          "command": "gitlens.toggleLineBlame",
+          "when": "editorTextFocus && gitlens:canToggleCodeLens && gitlens:enabled && config.gitlens.keymap == 'alternate'"
+        }
+      ]
+    },
+    {
+      "key": "t",
+      "name": "Terminal...",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "t",
+          "name": "Focus Terminal",
+          "type": "command",
+          "command": "workbench.action.terminal.toggleTerminal",
+          "when": "!terminalFocus"
+        }
+      ]
+    },
+    {
+      "key": "v",
+      "name": "Split Vertical",
+      "type": "command",
+      "command": "workbench.action.splitEditor"
+    },
+    {
+      "key": "w",
+      "name": "Save",
+      "type": "command",
+      "command": "vscode-neovim.send",
+      "args": "w"
+    },
+    {
+      "key": "a",
+      "name": "Window...",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "h",
+          "name": "Move editor group left",
+          "type": "command",
+          "command": "workbench.action.moveActiveEditorGroupLeft"
+        },
+        {
+          "key": "j",
+          "name": "Move editor group down",
+          "type": "command",
+          "command": "workbench.action.moveActiveEditorGroupDown"
+        },
+        {
+          "key": "k",
+          "name": "Move editor group up",
+          "type": "command",
+          "command": "workbench.action.moveActiveEditorGroupUp"
+        },
+        {
+          "key": "l",
+          "name": "Move editor group right",
+          "type": "command",
+          "command": "workbench.action.moveActiveEditorGroupRight"
+        },
+        {
+          "key": "t",
+          "name": "Toggle editor group sizes",
+          "type": "command",
+          "command": "workbench.action.toggleEditorWidths"
+        },
+        {
+          "key": "m",
+          "name": "Maximize editor group",
+          "type": "command",
+          "command": "workbench.action.minimizeOtherEditors"
+        },
+        {
+          "key": "M",
+          "name": "Maximize editor group and hide side bar",
+          "type": "command",
+          "command": "workbench.action.maximizeEditor"
+        },
+        {
+          "key": "=",
+          "name": "Reset editor group sizes",
+          "type": "command",
+          "command": "workbench.action.evenEditorWidths"
+        },
+        {
+          "key": "z",
+          "name": "Combine all editors",
+          "type": "command",
+          "command": "workbench.action.joinAllGroups"
+        },
+        {
+          "key": "d",
+          "name": "Close editor group",
+          "type": "command",
+          "command": "workbench.action.closeEditorsInGroup"
+        },
+        {
+          "key": "x",
+          "name": "Close all editor groups",
+          "type": "command",
+          "command": "workbench.action.closeAllGroups"
+        }
+      ]
+    },
+    {
+      "key": "x",
+      "name": "Extensions",
+      "type": "command",
+      "command": "workbench.view.extensions"
+    },
+    {
+      "key": "z",
+      "name": "Toggle zen mode",
+      "type": "command",
+      "command": "workbench.action.toggleZenMode"
+    }
+  ],
 
   // ---------------------------------------------------
   // Prettier Settings (Extension)
@@ -130,7 +454,12 @@
   // ---------------------------------------------------
   // Eslint Settings (Extension)
   // ---------------------------------------------------
-  "eslint.validate": ["javascript"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
 
   // ---------------------------------------------------
   // Others
@@ -138,5 +467,18 @@
   "scm.alwaysShowRepositories": true,
   "vsicons.dontShowNewVersionMessage": true,
   "git.path": "/usr/bin/git",
-  "git.ignoreMissingGitWarning": true
+  "git.ignoreMissingGitWarning": true,
+  "explorer.confirmDelete": false,
+  "workbench.colorCustomizations": {
+    "editorCursor.foreground": "#0f0",
+    "editorCursor.background": "#000",
+    "statusBar.background": "#665c54",
+    "statusBar.noFolderBackground": "#665c54",
+    "statusBar.debuggingBackground": "#665c54",
+    "statusBar.foreground": "#e6ddd5"
+  },
+  "editor.cursorStyle": "line",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
+  "window.zoomLevel": -1
 }
