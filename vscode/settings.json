@@ -5,14 +5,10 @@
   "breadcrumbs.enabled": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "window.title": "${rootName}${separator}${activeEditorMedium}",
-  "search.exclude": {
-    "**/.git": true,
-    "**/dist": true,
-    "**/node_modules": true
-  },
+  "window.zoomLevel": -1,
   "editor.detectIndentation": false,
   "editor.tabSize": 2,
-  "editor.insertSpaces": false,
+  "editor.insertSpaces": true,
   "editor.rulers": [80],
   "editor.fontFamily": "'Hack', 'Cascadia Code','FiraCode-Retina', Consolas, 'Courier New', monospace",
   "editor.fontLigatures": false,
@@ -22,6 +18,9 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "editor.cursorStyle": "line",
+  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+  "editor.wordWrap": "off",
   "editor.lineNumbers": "relative",
   "editor.minimap.size": "fit",
   "editor.quickSuggestionsDelay": 0,
@@ -35,15 +34,33 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
 
   // ---------------------------------------------------
+  // search config
+  // ---------------------------------------------------
+  "search.mode": "reuseEditor",
+  "search.exclude": {
+    "**/.git": true,
+    "**/dist": true,
+    "**/node_modules": true
+  },
+
+  // ---------------------------------------------------
   // workbench config
   // ---------------------------------------------------
-  "workbench.colorTheme": "Cobalt2",
+  "workbench.colorTheme": "One Dark Pro Flat",
   "workbench.editor.limit.enabled": true,
   "workbench.editor.limit.value": 10,
   "workbench.iconTheme": "vscode-icons",
   "workbench.sideBar.location": "right",
   "workbench.editor.decorations.badges": true,
   "workbench.editor.decorations.colors": true,
+  "workbench.colorCustomizations": {
+    "editorCursor.foreground": "#0f0",
+    "editorCursor.background": "#000",
+    "statusBar.background": "#665c54",
+    "statusBar.noFolderBackground": "#665c54",
+    "statusBar.debuggingBackground": "#665c54",
+    "statusBar.foreground": "#e6ddd5"
+  },
 
   // ---------------------------------------------------
   // terminal config
@@ -55,130 +72,6 @@
   // ---------------------------------------------------
   "emmet.triggerExpansionOnTab": true,
   "emmet.showSuggestionsAsSnippets": true,
-
-  // ---------------------------------------------------
-  // VIM Settings (Extension)
-  // ---------------------------------------------------
-  "vim.statusBarColorControl": true,
-  "vim.statusBarColors.normal": ["#665c54", "#e6ddd5"],
-  "vim.statusBarColors.insert": ["#d65d0e", "#111111"],
-  "vim.statusBarColors.visual": ["#79740e", "#e6ddd5"],
-  "vim.statusBarColors.visualline": ["#79740e", "#e6ddd5"],
-  "vim.statusBarColors.visualblock": ["#79740e", "#e6ddd5"],
-  "vim.statusBarColors.replace": ["#d65d0e", "#111111"],
-  "vim.statusBarColors.commandlineinprogress": ["#076678", "#e6ddd5"],
-  "vim.statusBarColors.searchinprogressmode": ["#076678", "#e6ddd5"],
-  "vim.statusBarColors.easymotionmode": ["#076678", "#e6ddd5"],
-  "vim.statusBarColors.easymotioninputmode": ["#076678", "#e6ddd5"],
-  "vim.statusBarColors.surroundinputmode": ["#076678", "#e6ddd5"],
-  "vim.camelCaseMotion.enable": true, // easier way to move through camelCase and snake_case words
-  "vim.easymotion": true,
-  "vim.surround": true,
-  "vim.incsearch": true, // Show the next match while entering a search
-  "vim.hlsearch": true, // Highlights all text matching current search
-  "vim.useSystemClipboard": true,
-  "vim.useCtrlKeys": true,
-  "vim.highlightedyank.enable": true, // Enable highlighting when yanking
-  "vim.visualstar": true, // In visual mode, enable # or *
-  "vim.insertModeKeyBindingsNonRecursive": [],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      // cursor navigation
-      "before": ["j"],
-      "after": ["g", "j"]
-    },
-    {
-      // cursor navigation
-      "before": ["k"],
-      "after": ["g", "k"]
-    },
-    {
-      // clear last search highlighting
-      "before": ["<C-n>"],
-      "commands": [":noh"]
-    },
-    {
-      // split editor
-      "before": ["<leader>", "l"],
-      "commands": ["workbench.action.splitEditor"]
-    },
-    {
-      // split editor
-      "before": ["<leader>", "j"],
-      "commands": ["workbench.action.splitEditorDown"]
-    },
-    {
-      // find all
-      "before": ["<leader>", "f", "p"],
-      "commands": ["workbench.action.quickOpen"]
-    },
-    {
-      // find all
-      "before": ["<leader>", "f", "f"],
-      "commands": ["workbench.action.findInFiles"]
-    },
-    {
-      // focus on explorer
-      "before": ["<leader>", "f", "e"],
-      "commands": ["workbench.view.explorer"]
-    },
-    {
-      // focus source control
-      "before": ["<leader>", "g", "s"],
-      "commands": ["workbench.scm.focus"]
-    },
-    {
-      // window navigation
-      "before": ["<C-h>"],
-      "after": ["<C-w>", "h"]
-    },
-    {
-      // window navigation
-      "before": ["<C-j>"],
-      "after": ["<C-w>", "j"]
-    },
-    {
-      // window navigation
-      "before": ["<C-k>"],
-      "after": ["<C-w>", "k"]
-    },
-    {
-      // window navigation
-      "before": ["<C-l>"],
-      "after": ["<C-w>", "l"]
-    },
-    {
-      // vim easymotion
-      "before": ["<leader>", "/"],
-      "after": ["<Leader>", "<Leader>", "<Leader>", "b", "d", "w"]
-    }
-  ],
-  "vim.visualModeKeyBindingsNonRecursive": [
-    // paste without replacing new words into clipboard
-    {
-      "before": ["p"],
-      "after": ["\"", "_", "d", "P"]
-    },
-    // move line
-    {
-      "before": ["<C-k>"],
-      "commands": ["editor.action.moveLinesUpAction"]
-    },
-    {
-      "before": ["<C-j>"],
-      "commands": ["editor.action.moveLinesDownAction"]
-    },
-    // auto select back after formatting
-    {
-      "before": [">"],
-      "after": [">", "g", "v"]
-    },
-    {
-      "before": ["<"],
-      "after": ["<", "g", "v"]
-    }
-  ],
-  "vim.leader": "<space>",
 
   // ---------------------------------------------------
   // Neovim
@@ -222,22 +115,22 @@
       "command": "workbench.action.closeActiveEditor"
     },
     {
-      "key": "e",
-      "name": "Toggle Explorer",
+      "key": "b",
+      "name": "Sidebar",
       "type": "command",
       "command": "workbench.action.toggleSidebarVisibility"
+    },
+    {
+      "key": "e",
+      "name": "File Explorer",
+      "type": "command",
+      "command": "workbench.view.explorer"
     },
     {
       "key": "f",
       "name": "Find...",
       "type": "bindings",
       "bindings": [
-        {
-          "key": "e",
-          "name": "File Explorer",
-          "type": "command",
-          "command": "workbench.view.explorer"
-        },
         {
           "key": "f",
           "name": "Find All",
@@ -280,7 +173,13 @@
           "key": "d",
           "name": "Directory",
           "type": "command",
-          "command": "workbench.action.files.openFolder"
+          "command": "workbench.action.files.openFileFolder"
+        },
+        {
+          "key": "f",
+          "name": "File",
+          "type": "command",
+          "command": "workbench.action.files.openFile"
         },
         {
           "key": "r",
@@ -289,10 +188,22 @@
           "command": "workbench.action.openRecent"
         },
         {
-          "key": "f",
-          "name": "File",
+          "key": "t",
+          "name": "Terminal",
           "type": "command",
-          "command": "workbench.action.files.openFile"
+          "command": "workbench.action.terminal.toggleTerminal"
+        },
+        {
+          "key": "o",
+          "name": "Output",
+          "type": "command",
+          "command": "workbench.panel.output.focus"
+        },
+        {
+          "key": "c",
+          "name": "Debug Console",
+          "type": "command",
+          "command": "workbench.panel.repl.view.focus"
         }
       ]
     },
@@ -320,25 +231,29 @@
           "command": "git.viewFileHistory"
         },
         {
+          "key": "f",
+          "name": "Fetch",
+          "type": "command",
+          "command": "git.fetch"
+        },
+        {
+          "key": "p",
+          "name": "Pull",
+          "type": "command",
+          "command": "git.pull"
+        },
+        {
+          "key": "P",
+          "name": "Push",
+          "type": "command",
+          "command": "git.push"
+        },
+        {
           "key": "l",
           "name": "Toggle Line Blame",
           "type": "command",
-          "command": "gitlens.toggleLineBlame",
+          "command": "gitlens.toggleFileBlame",
           "when": "editorTextFocus && gitlens:canToggleCodeLens && gitlens:enabled && config.gitlens.keymap == 'alternate'"
-        }
-      ]
-    },
-    {
-      "key": "t",
-      "name": "Terminal...",
-      "type": "bindings",
-      "bindings": [
-        {
-          "key": "t",
-          "name": "Focus Terminal",
-          "type": "command",
-          "command": "workbench.action.terminal.toggleTerminal",
-          "when": "!terminalFocus"
         }
       ]
     },
@@ -352,8 +267,7 @@
       "key": "w",
       "name": "Save",
       "type": "command",
-      "command": "vscode-neovim.send",
-      "args": "w"
+      "command": "workbench.action.files.save"
     },
     {
       "key": "a",
@@ -383,30 +297,6 @@
           "name": "Move editor group right",
           "type": "command",
           "command": "workbench.action.moveActiveEditorGroupRight"
-        },
-        {
-          "key": "t",
-          "name": "Toggle editor group sizes",
-          "type": "command",
-          "command": "workbench.action.toggleEditorWidths"
-        },
-        {
-          "key": "m",
-          "name": "Maximize editor group",
-          "type": "command",
-          "command": "workbench.action.minimizeOtherEditors"
-        },
-        {
-          "key": "M",
-          "name": "Maximize editor group and hide side bar",
-          "type": "command",
-          "command": "workbench.action.maximizeEditor"
-        },
-        {
-          "key": "=",
-          "name": "Reset editor group sizes",
-          "type": "command",
-          "command": "workbench.action.evenEditorWidths"
         },
         {
           "key": "z",
@@ -466,19 +356,7 @@
   // ---------------------------------------------------
   "scm.alwaysShowRepositories": true,
   "vsicons.dontShowNewVersionMessage": true,
-  "git.path": "/usr/bin/git",
   "git.ignoreMissingGitWarning": true,
-  "explorer.confirmDelete": false,
-  "workbench.colorCustomizations": {
-    "editorCursor.foreground": "#0f0",
-    "editorCursor.background": "#000",
-    "statusBar.background": "#665c54",
-    "statusBar.noFolderBackground": "#665c54",
-    "statusBar.debuggingBackground": "#665c54",
-    "statusBar.foreground": "#e6ddd5"
-  },
-  "editor.cursorStyle": "line",
-  "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-  "editor.wordWrap": "off",
-  "window.zoomLevel": -1
+  "git.autofetch": true,
+  "explorer.confirmDelete": false
 }
