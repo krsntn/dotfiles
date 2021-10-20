@@ -9,9 +9,18 @@ endif
 
 call plug#end()
 
-let g:highlightedyank_highlight_duration = 200
+lang en_US.UTF-8
 
+set encoding=utf-8  " The encoding displayed.
+set fileencoding=utf-8  " The encoding written to file.
 set clipboard=unnamedplus
+set ignorecase
+set smartcase
+set smarttab
+set smartindent
+set copyindent
+
+let g:highlightedyank_highlight_duration = 200
 
 function! s:manageEditorSize(...)
     let count = a:1
@@ -103,3 +112,4 @@ nmap gcc <Plug>VSCodeCommentaryLine
 " Simulate same TAB behavior in VSCode
 nmap <Tab> :Tabnext<CR>
 nmap <S-Tab> :Tabprev<CR>
+
